@@ -23,7 +23,7 @@ package org.gruple
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.ConcurrentLinkedQueue
 import java.util.logging.*
-import groovy.time.Duration
+import groovy.time.TimeDuration
 
 /**
  * Class representing a tuplespace. Tuples {@Link Tuple} can be inserted, read, and
@@ -141,7 +141,7 @@ class Space {
      * @param a map of {@Link Tuple} fields
      * @param a Duration for the tuple's time-to-live
      */
-    void put(Map tupleFields, Duration ttl) {
+    void put(Map tupleFields, TimeDuration ttl) {
         put(tupleFields, ttl.toMilliseconds())
     }
 
@@ -189,7 +189,7 @@ class Space {
      * @throws InterruptedException (for the sake of Java clients)
      * @return a Map of the matched Tuple's fields or null if no match found
      */
-    Map take(Map templateFields, Duration timeout) throws InterruptedException {
+    Map take(Map templateFields, TimeDuration timeout) throws InterruptedException {
         return take(templateFields, timeout.toMilliseconds())
     }
 
@@ -229,7 +229,7 @@ class Space {
      * @throws InterruptedException (for the sake of Java clients)
      * @return a Map of the matched Tuple's fields or null if no match found
      */
-    Map get(Map templateFields, Duration timeout) throws InterruptedException {
+    Map get(Map templateFields, TimeDuration timeout) throws InterruptedException {
         return get(templateFields, timeout.toMilliseconds())
     }
 
