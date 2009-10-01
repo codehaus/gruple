@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="1" failures="0" hostname="VWPowerBookG4.local" name="org.gruple.SpaceTest" tests="2" time="2.667" timestamp="2009-05-14T15:43:29">
+  <properties>
+    <property name="java.vendor" value="Apple Inc." />
+    <property name="lib.dir" value="/Users/vwilliam/Projects/IdeaProjects/Gruple/lib" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Server Compiler" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="sun.boot.class.path" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/ui.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/laf.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/sunrsasign.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/jsse.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/jce.jar:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/charsets.jar" />
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="ant.home" value="/Applications/IntelliJ IDEA 8.1.1.app/lib/ant" />
+    <property name="java.runtime.version" value="1.6.0_07-b06-153" />
+    <property name="user.name" value="vwilliam" />
+    <property name="debug" value="on" />
+    <property name="awt.nativeDoubleBuffering" value="true" />
+    <property name="build.dir" value="/Users/vwilliam/Projects/IdeaProjects/Gruple/build" />
+    <property name="user.language" value="en" />
+    <property name="sun.boot.library.path" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Libraries" />
+    <property name="doc.dir" value="/Users/vwilliam/Projects/IdeaProjects/Gruple/doc" />
+    <property name="ant.project.name" value="Gruple" />
+    <property name="java.version" value="1.6.0_07" />
+    <property name="user.timezone" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="test.src.dir" value="/Users/vwilliam/Projects/IdeaProjects/Gruple/test" />
+    <property name="java.endorsed.dirs" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/lib/endorsed" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="sun.jnu.encoding" value="MacRoman" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="/" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="50.0" />
+    <property name="build.classes.dir" value="/Users/vwilliam/Projects/IdeaProjects/Gruple/build/classes" />
+    <property name="user.country" value="US" />
+    <property name="java.home" value="/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home" />
+    <property name="dist.dir" value="/Users/vwilliam/Projects/IdeaProjects/Gruple/dist" />
+    <property name="optimize" value="off" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="ant.file" value="/Users/vwilliam/Projects/IdeaProjects/Gruple/build.xml" />
+    <property name="os.version" value="10.5.6" />
+    <property name="run.jvmargs" value="" />
+    <property name="path.separator" value=":" />
+    <property name="java.vm.version" value="1.6.0_07-b06-57" />
+    <property name="ant.file.Gruple" value="/Users/vwilliam/Projects/IdeaProjects/Gruple/build.xml" />
+    <property name="ant.library.dir" value="/Applications/IntelliJ IDEA 8.1.1.app/lib/ant/lib" />
+    <property name="java.awt.printerjob" value="apple.awt.CPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="apple.awt.CToolkit" />
+    <property name="user.home" value="/Users/vwilliam" />
+    <property name="java.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="default.javac.target" value="1.5" />
+    <property name="java.library.path" value="/Applications/IntelliJ IDEA 8.1.1.app/Contents/Resources/Java:/System/Library/PrivateFrameworks/JavaApplicationLauncher.framework/Resources:.:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+    <property name="java.vendor.url" value="http://www.apple.com/" />
+    <property name="java.vm.vendor" value="Apple Inc." />
+    <property name="gopherProxySet" value="false" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="java.class.path" value="/Users/vwilliam/Projects/IdeaProjects/Gruple/dist/gruple.jar:/Users/vwilliam/Projects/IdeaProjects/Gruple/lib/groovy-all-1.6.0.jar:/Users/vwilliam/Projects/IdeaProjects/Gruple/lib/junit-4.5.jar:/Users/vwilliam/Projects/IdeaProjects/Gruple/build/classes:/Users/vwilliam/Projects/IdeaProjects/Gruple/build/test/classes:/Applications/IntelliJ IDEA 8.1.1.app/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA 8.1.1.app/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA 8.1.1.app/lib/ant/lib/ant-junit.jar" />
+    <property name="ant.version" value="Apache Ant version 1.7.1 compiled on June 27 2008" />
+    <property name="build.test.classes.dir" value="/Users/vwilliam/Projects/IdeaProjects/Gruple/build/test/classes" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="work.dir" value="/Users/vwilliam/Projects/IdeaProjects/Gruple" />
+    <property name="java.vm.specification.version" value="1.0" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="java.io.tmpdir" value="/tmp" />
+    <property name="java.vendor.url.bug" value="http://bugreport.apple.com/" />
+    <property name="os.arch" value="x86_64" />
+    <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment" />
+    <property name="java.ext.dirs" value="/Library/Java/Extensions:/System/Library/Java/Extensions:/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/lib/ext" />
+    <property name="mrj.version" value="1040.1.6.0_07-153" />
+    <property name="user.dir" value="/Users/vwilliam/Projects/IdeaProjects/Gruple" />
+    <property name="build.test.dir" value="/Users/vwilliam/Projects/IdeaProjects/Gruple/build/test" />
+    <property name="line.separator" value="
+" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="build.test.results.dir" value="/Users/vwilliam/Projects/IdeaProjects/Gruple/build/test/results" />
+    <property name="deprecation" value="on" />
+    <property name="basedir" value="/Users/vwilliam/Projects/IdeaProjects/Gruple" />
+    <property name="ant.java.version" value="1.6" />
+    <property name="ant.core.lib" value="/Applications/IntelliJ IDEA 8.1.1.app/lib/ant/lib/ant.jar" />
+    <property name="file.encoding" value="MacRoman" />
+    <property name="default.javac.source" value="1.5" />
+    <property name="java.specification.version" value="1.6" />
+    <property name="src.dir" value="/Users/vwilliam/Projects/IdeaProjects/Gruple/src" />
+  </properties>
+  <testcase classname="org.gruple.SpaceTest" name="testSpace" time="2.156">
+    <error message="Negative array index [-1] too large for array size 0" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: Negative array index [-1] too large for array size 0
+	at org.codehaus.groovy.runtime.DefaultGroovyMethodsSupport.normaliseIndex(DefaultGroovyMethodsSupport.java:69)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.getAt(DefaultGroovyMethods.java:3274)
+	at org.codehaus.groovy.runtime.dgm$207.invoke(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoMetaMethodSiteNoUnwrapNoCoerce.invoke(PojoMetaMethodSite.java:270)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:52)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:124)
+	at org.gruple.Space.getMatch(Space.groovy:486)
+	at org.gruple.Space.this$2$getMatch(Space.groovy)
+	at org.gruple.Space$this$2$getMatch.callCurrent(Unknown Source)
+	at org.gruple.Space.take(Space.groovy:230)
+	at org.gruple.Space$take$0.callCurrent(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:142)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:154)
+	at org.gruple.Space.take(Space.groovy:259)
+	at org.gruple.Space$take$2.callCurrent(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:47)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:142)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:154)
+	at org.gruple.Space.take(Space.groovy)
+	at org.gruple.Space$take$1.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:43)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:124)
+	at org.gruple.SpaceTest.testSpace(SpaceTest.groovy:93)
+</error>
+  </testcase>
+  <testcase classname="org.gruple.SpaceTest" name="testDurations" time="0.455" />
+  <system-out><![CDATA[Starting space test at 1242315810914
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Gruple Examples" default="compile" basedir=".">
+
+    <description>
+        Build and run the Gruple library examples.
+    </description>
+
+    <!-- For easy developer overrides -->
+    <property file="build.properties"/>
+
+    <!-- Java source and target versions -->
+    <property name="default.javac.source" value="1.6"/>
+    <property name="default.javac.target" value="1.6"/>
+
+    <!-- Java command path-->
+    <property name="javahome" value="/usr/bin/java" />
+    
+    <!-- Directories -->
+    <property name="src.dir" value="${basedir}/src" />
+    <property name="build.dir" value="${basedir}/build" />
+    <property name="build.classes.dir" value="${build.dir}/classes" />
+    <property name="lib.dir" value="${basedir}/../dist"/>
+    <property name="work.dir" value="${basedir}"/>
+
+    <!-- filesets -->
+    <fileset id="lib" dir="${lib.dir}">
+        <include name="*.jar" />
+    </fileset>
+
+    <!-- Complilation Flags -->
+    <property name="debug" value="on" />
+    <property name="deprecation" value="on" />
+    <property name="optimize" value="off" />
+
+    <!-- Run-time stuff -->
+    <property name="run.jvmargs" value=""/>
+
+    <path id="build.classpath">
+        <fileset dir="${lib.dir}" >
+            <include name="*.jar"/>
+            <exclude name="junit*.jar"/>
+        </fileset>
+        <fileset dir="${basedir}/../lib/">
+            <include name="groovy-all*.jar" />
+        </fileset>
+    </path>
+
+    <path id="run.classpath">
+        <fileset dir="${basedir}/../lib/">
+            <include name="groovy-all*.jar" />
+        </fileset>
+        <fileset dir="${lib.dir}">
+            <include name="gruple.jar"/>
+        </fileset>
+    </path>
+
+    <target name="compile" description="Compile the example classes.">
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${build.classes.dir}"/>
+        <taskdef name="groovyc" classpathref="build.classpath" classname="org.codehaus.groovy.ant.Groovyc"/>
+        <groovyc classpathref="build.classpath" destdir="${build.classes.dir}" srcdir="${src.dir}" includes="**/*.groovy"/>
+    </target>
+
+    <!-- values for arguments to mandelbrot master class -->
+    <property name="tasks" value="16" />
+    <property name="workers" value="4" />
+    <property name="width" value="640" />
+    <property name="height" value="480" />
+
+    <target name="mandelbrot" description="Run the Mandelbrot viewer example">
+        <java classname="mandelbrot.Master">
+            <classpath refid="run.classpath" />
+            <classpath location="${build.classes.dir}" />
+            <arg value="${tasks}" />
+            <arg value="${workers}" />
+            <arg value="${width}" />
+            <arg value="${height}" />
+        </java>
+    </target>
+
+</project>
