@@ -57,6 +57,8 @@ final class Tuple implements Serializable {
 
     private final Map fields
 
+    private Boolean formal = null
+
     private static final knownImmutables =
         [Integer.class, Short.class, Long.class, Byte.class, Float.class, Double.class, BigInteger.class,
          BigDecimal.class, Boolean.class, Character.class, String.class, URI.class, Date.class]
@@ -100,7 +102,7 @@ final class Tuple implements Serializable {
             // make any Collections immutable
             tempFields[key] = ensureImmutableCollections(value)
         }
-        this.fields = new HashMap(tempFields).asImmutable()
+        this.fields = tempFields
     }
 
 
@@ -108,7 +110,7 @@ final class Tuple implements Serializable {
      * @returns a the Tuple's fields (as an immutable Map.)
      */
     protected final Map getFields() {
-        fields
+        return new HashMap(this.fields).asImmutable()
     }
 
     /**
@@ -145,7 +147,8 @@ final class Tuple implements Serializable {
     // FIXME: make symmetrical
     protected Boolean matches(final Tuple antiTup){
 
-        assert !hasFormals() : "Cannot call match on a template; no fields may be formal (null): ${this.toString()}"
+        if (hasFormals())
+            throw new IllegalArgumentException("Cannot call match on a template; no fields may be formal (null): ${this.toString()}")
 
         Map aFields = antiTup.fields
         assert aFields != [:] : "Antituple can't have zero fields."
@@ -181,10 +184,11 @@ final class Tuple implements Serializable {
     }
 
     protected boolean hasFormals() {
-        if (fields.containsValue(null) || fields.any {it instanceof Closure}) {
-            return true
+
+        if (this.formal == null) {
+            this.formal=fields.containsValue(null) || fields.any {it instanceof Closure}
         }
-        return false
+        return formal
     }
 
     /*
