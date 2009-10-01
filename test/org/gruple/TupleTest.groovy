@@ -81,8 +81,8 @@ class TupleTest extends GroovyTestCase {
         assertTrue(tuple1.matches(tuple1)) // tuple matches itself
         try {
             template1.matches(tuple1) // can only call on a tuple (no formal fields)
-            fail("Expected AssertionError")
-        } catch (java.lang.AssertionError success) {}
+            fail("Expected IllegalArgumentException")
+        } catch (Exception success) {}
         assertTrue(tuple1.matches(template3))
     }
 
