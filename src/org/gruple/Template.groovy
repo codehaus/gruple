@@ -32,19 +32,25 @@ class Template {
     /**
      * True for "take" template, false for "get" templates
      */
-    boolean destructive
+    final Boolean destructive
 
     /**
     * Id of the thread that owns this template. Used to uniquely identify template to
     * remove from the templateMap when a match is found.
     */
-    def threadId
-    @Delegate Tuple tuple
+    final def threadId
+
+
+
+    /*
+    * Delegate most methods to this tuple
+    */
+    @Delegate final Tuple tuple
 
     /**
      * Constructor.
      */
-    Template (Tuple tuple, boolean destructive) {
+    Template (Tuple tuple, Boolean destructive) {
         this.tuple = tuple
         this.destructive = destructive
         this.threadId = Thread.currentThread().id
