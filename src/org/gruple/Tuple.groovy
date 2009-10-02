@@ -102,7 +102,7 @@ final class Tuple implements Serializable {
             // make any Collections immutable
             tempFields[key] = ensureImmutableCollections(value)
         }
-        this.fields = tempFields
+        this.fields = new HashMap(tempFields).asImmutable()
     }
 
 
@@ -110,7 +110,7 @@ final class Tuple implements Serializable {
      * @returns a the Tuple's fields (as an immutable Map.)
      */
     protected final Map getFields() {
-        return new HashMap(this.fields).asImmutable()
+        return this.fields
     }
 
     /**
