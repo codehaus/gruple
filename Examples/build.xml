@@ -56,6 +56,7 @@
 
     <target name="compile" description="Compile the example classes.">
         <mkdir dir="${build.dir}"/>
+        <delete dir="${build.classes.dir}"/>
         <mkdir dir="${build.classes.dir}"/>
         <taskdef name="groovyc" classpathref="build.classpath" classname="org.codehaus.groovy.ant.Groovyc"/>
         <groovyc classpathref="build.classpath" destdir="${build.classes.dir}" srcdir="${src.dir}" includes="**/*.groovy"/>
@@ -67,8 +68,8 @@
     <property name="width" value="640" />
     <property name="height" value="480" />
 
-    <target name="mandelbrot" description="Run the Mandelbrot viewer example">
-        <java classname="mandelbrot.Master">
+    <target name="mandelbrot" depends="compile" description="Run the Mandelbrot viewer example">
+        <java classname="mandelbrot.Master" fork="true" spawn="true">
             <classpath refid="run.classpath" />
             <classpath location="${build.classes.dir}" />
             <arg value="${tasks}" />
