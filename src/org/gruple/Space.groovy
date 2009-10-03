@@ -99,6 +99,9 @@ class Space {
 
     private Timer expiryTimer
 
+    // Lock object to make certain no two threads get the same match
+    private Object matchLock = new Object()
+
     /**
      * Creates a new instance of TupleSpace.
      *
@@ -453,37 +456,48 @@ class Space {
         if (LOG.isLoggable(Level.FINE))
             LOG.fine("Finding match for template $template Destroy is $destroy")
 
-        Tuple tuple
+        def tuple
         def thash = template.tupleHash()
-        def tuples
+        Collection tuples
         if (tupleMap.containsKey(thash)) {
-            tuples = tupleMap[thash]
-            Collection allMatches
-            // XXX: deliberately being non-deterministic may be too expensive
-            allMatches = tuples.findAll {
-                it.matches(template)
+
+            synchronized(matchLock) { // Don't allow two threads to match the same tuple
+
+                tuples = tupleMap[thash]
+
+                Collection allMatches
+                // XXX: deliberately being non-deterministic may be too expensive
+                allMatches = tuples.findAll {
+                    it.matches(template)
+                }
+                if (allMatches.size() > 1)
+                    tuple = allMatches.toArray()[random(allMatches.size()-1)] as Tuple
+                else if (allMatches)
+                    tuple = allMatches.toArray()[0] as Tuple
+
+                /* Deterministic option
+                tuple = tuples.find {
+                    it.matches(template)
+                }
+                */
+
+                if (tuple) {
+
+                    if (LOG.isLoggable(Level.FINE))
+                        LOG.fine("Matching tuple found $tuple")
+
+                    if (destroy) {
+                        assert tuples != null && !tuples.isEmpty() && tuples.contains(tuple)
+                        tuples.remove(tuple) // extract the tuple if appropriate
+                        if (tuples.isEmpty())
+                            tupleMap.remove(thash) // clean up map
+                    }
+                }
             }
-            if (allMatches.size() > 1)
-                tuple = allMatches.toArray()[random(allMatches.size()-1)] as Tuple
-            else if (allMatches)
-                tuple = allMatches.toArray()[0] as Tuple
-            
         }
 
-        if (tuple) {
 
-            if (LOG.isLoggable(Level.FINE))
-                LOG.fine("Matching tuple found $tuple")
-
-            if (destroy) {
-                assert tuples != null && !tuples.isEmpty() && tuples.contains(tuple)
-                tuples.remove(tuple) // extract the tuple if appropriate
-                if (tuples.isEmpty())
-                    tupleMap.remove(thash) // clean up map
-            }
-        }
-
-        return tuple
+        return tuple as Tuple
     }
 
     private removeTemplate(Template template) {
