@@ -308,7 +308,6 @@ class Space {
         long start = System.currentTimeMillis()
         long timeToWait = timeout
         synchronized (template) {
-            //while (!shuttingDown && !(match = getMatch(antiTuple, true))) {
             while (!shuttingDown && !(match = getMatch(template, true))) {
                 if (timeToWait <= 0)
                     break
@@ -358,7 +357,6 @@ class Space {
         long start = System.currentTimeMillis()
         long timeToWait = timeout
         synchronized (template) {
-            //while (!shuttingDown && !(match = getMatch(antiTuple, false))) {
             while (!shuttingDown && !(match = getMatch(template, false))) {
                 if (timeToWait <= 0)
                     break
@@ -495,7 +493,7 @@ class Space {
 
                     if (destroy) {
                         assert tuples != null && !tuples.isEmpty() && tuples.contains(tuple)
-                        tuples.remove(tuple) // extract the tuple if appropriate
+                        tuples.remove(tuple)// extract the tuple if appropriate
                         if (tuples.isEmpty())
                             tupleMap.remove(thash) // clean up map
                     }
@@ -515,7 +513,6 @@ class Space {
         def thash = template.tuple.tupleHash()
         if (templateMap.containsKey(thash)) {
             def templates = templateMap[thash]
-            assert templates.contains(template)
             templates.remove(template)
             if (templates.isEmpty())
                 templateMap.remove(thash) // clean up map
