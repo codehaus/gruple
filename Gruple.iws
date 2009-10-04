@@ -5,40 +5,13 @@
     <option name="CUSTOM_SCOPE_NAME" value="Project Files" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/SpaceService.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/SpaceService.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/index.html" afterPath="$PROJECT_DIR$/doc/gapi/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/Space.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/Space.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/deprecated-list.html" afterPath="$PROJECT_DIR$/doc/gapi/deprecated-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/help-doc.html" afterPath="$PROJECT_DIR$/doc/gapi/help-doc.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/package-summary.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruple.ipr" afterPath="$PROJECT_DIR$/Gruple.ipr" />
+    <list default="true" readonly="true" id="047e481f-968b-46b6-a919-2d1a0c36dfe7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/gruple.jar" afterPath="$PROJECT_DIR$/dist/gruple.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/results/TEST-org.gruple.SpaceServiceTest.xml" afterPath="$PROJECT_DIR$/build/test/results/TEST-org.gruple.SpaceServiceTest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruple.iml" afterPath="$PROJECT_DIR$/Gruple.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/report/html/alltests-errors.html" afterPath="$PROJECT_DIR$/build/test/report/html/alltests-errors.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/report/html/all-tests.html" afterPath="$PROJECT_DIR$/build/test/report/html/all-tests.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/report/html/org/gruple/1_SpaceTest-out.txt" afterPath="$PROJECT_DIR$/build/test/report/html/org/gruple/1_SpaceTest-out.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/allclasses-frame.html" afterPath="$PROJECT_DIR$/doc/gapi/allclasses-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/report/html/org/gruple/1_SpaceTest.html" afterPath="$PROJECT_DIR$/build/test/report/html/org/gruple/1_SpaceTest.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/report/html/org/gruple/1_SpaceTest-errors.html" afterPath="$PROJECT_DIR$/build/test/report/html/org/gruple/1_SpaceTest-errors.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/report/html/org/gruple/2_TupleTest.html" afterPath="$PROJECT_DIR$/build/test/report/html/org/gruple/2_TupleTest.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/results/TEST-org.gruple.SpaceTest.xml" afterPath="$PROJECT_DIR$/build/test/results/TEST-org.gruple.SpaceTest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruple.iws" afterPath="$PROJECT_DIR$/Gruple.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/results/TEST-org.gruple.TupleTest.xml" afterPath="$PROJECT_DIR$/build/test/results/TEST-org.gruple.TupleTest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/Tuple.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/Tuple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/gruple/Space.groovy" afterPath="$PROJECT_DIR$/src/org/gruple/Space.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/index-all.html" afterPath="$PROJECT_DIR$/doc/gapi/index-all.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Examples/build.xml" afterPath="$PROJECT_DIR$/Examples/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/overview-summary.html" afterPath="$PROJECT_DIR$/doc/gapi/overview-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/report/html/overview-summary.html" afterPath="$PROJECT_DIR$/build/test/report/html/overview-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/report/html/org/gruple/0_SpaceServiceTest.html" afterPath="$PROJECT_DIR$/build/test/report/html/org/gruple/0_SpaceServiceTest.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/report/TESTS-TestSuites.xml" afterPath="$PROJECT_DIR$/build/test/report/TESTS-TestSuites.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/test/report/html/org/gruple/package-summary.html" afterPath="$PROJECT_DIR$/build/test/report/html/org/gruple/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/Template.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/Template.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruple.ipr" afterPath="$PROJECT_DIR$/Gruple.ipr" />
     </list>
-    <ignored path=".idea/workspace.xml" />
     <ignored path="Gruple.iws" />
+    <ignored path=".idea/workspace.xml" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="Commander">
@@ -47,10 +20,10 @@
     <splitter proportion="0.5" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Gruple$Gruple_tests..es" NAME="Gruple tests Coverage Results" MODIFIED="1242834245491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="emma" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Gruple$Gruple_tests.ic" NAME="Gruple tests Coverage Results" MODIFIED="1242327956960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>org.gruple.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/Gruple$Gruple_tests.ic" NAME="Gruple tests Coverage Results" MODIFIED="1242327956960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/Gruple$Gruple_tests..es" NAME="Gruple tests Coverage Results" MODIFIED="1242834245491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="emma" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>org.gruple.*</FILTER>
     </SUITE>
   </component>
@@ -106,16 +79,7 @@
       <file leaf-file-name="Space.groovy" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/org/gruple/Space.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="453" column="46" selection-start="14716" selection-end="14716" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Worker.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Examples/src/mandelbrot/Worker.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="47" selection-start="1810" selection-end="1810" vertical-scroll-proportion="0.0">
+            <state line="512" column="12" selection-start="16669" selection-end="16669" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -124,25 +88,16 @@
       <file leaf-file-name="Master.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Examples/src/mandelbrot/Master.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="141" column="5" selection-start="3681" selection-end="3681" vertical-scroll-proportion="0.6754386">
+            <state line="77" column="4" selection-start="2172" selection-end="2172" vertical-scroll-proportion="0.016949153">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Examples/build.xml">
+      <file leaf-file-name="Template.groovy" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/gruple/Template.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="80" selection-start="1192" selection-end="1192" vertical-scroll-proportion="4.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="44" selection-start="2116" selection-end="2116" vertical-scroll-proportion="-13.263158">
+            <state line="57" column="57" selection-start="1679" selection-end="1679" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -158,16 +113,16 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/Examples/src/mandelbrot/MandelbrotFrame.groovy" />
-        <option value="$PROJECT_DIR$/Examples/src/mandelbrot/Master.groovy" />
         <option value="$PROJECT_DIR$/Examples/src/mandelbrot/Worker.groovy" />
         <option value="$PROJECT_DIR$/Examples/build.properties" />
         <option value="$PROJECT_DIR$/src/org/gruple/Tuple.groovy" />
         <option value="$PROJECT_DIR$/test/org/gruple/TupleTest.groovy" />
         <option value="$PROJECT_DIR$/src/org/gruple/Template.groovy" />
         <option value="$PROJECT_DIR$/Examples/build.xml" />
+        <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/src/org/gruple/Space.groovy" />
+        <option value="$PROJECT_DIR$/Examples/src/mandelbrot/Master.groovy" />
       </list>
     </option>
   </component>
@@ -177,6 +132,11 @@
   </component>
   <component name="PackagesPane">
     <subPane />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state />
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager">
     <OptionsSetting value="true" id="Add" />
@@ -210,7 +170,7 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="Gruple" />
+          <option name="myItemId" value="gruple" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
       </PATH>
@@ -224,7 +184,7 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="Gruple" />
+          <option name="myItemId" value="gruple" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
@@ -246,7 +206,7 @@
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
-          <option name="myItemId" value="Gruple" />
+          <option name="myItemId" value="gruple" />
           <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
@@ -310,14 +270,13 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="0.5" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
       <showLibraryContents />
       <hideEmptyPackages />
       <abbreviatePackageNames />
-      <showStructure ProjectPane="false" />
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
@@ -349,8 +308,8 @@
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
       <method>
-        <option name="AntTarget" value="false" />
-        <option name="Make" value="false" />
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="false" />
       </method>
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -365,8 +324,18 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method>
-        <option name="AntTarget" value="false" />
-        <option name="Make" value="false" />
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="SpecsRunConfiguration" factoryName="Specs">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG" enabled="false" merge="false" runner="emma">
@@ -395,8 +364,8 @@
       <properties />
       <listeners />
       <method>
-        <option name="AntTarget" value="false" />
-        <option name="Make" value="false" />
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="false" />
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit" enabled="false" merge="false" runner="emma">
@@ -418,8 +387,19 @@
       </option>
       <envs />
       <method>
-        <option name="AntTarget" value="false" />
-        <option name="Make" value="false" />
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application" enabled="false" merge="false" runner="emma">
@@ -435,8 +415,8 @@
       <module name="" />
       <envs />
       <method>
-        <option name="AntTarget" value="false" />
-        <option name="Make" value="false" />
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="false" />
       </method>
     </configuration>
     <configuration default="false" name="Mandelbrot" type="Application" factoryName="Application" enabled="false" merge="false" sample_coverage="true" runner="emma">
@@ -458,8 +438,8 @@
       </RunnerSettings>
       <ConfigurationWrapper RunnerId="Debug" />
       <method>
-        <option name="AntTarget" value="false" />
-        <option name="Make" value="false" />
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="false" />
       </method>
     </configuration>
     <configuration default="false" name="Gruple tests" type="JUnit" factoryName="JUnit" enabled="true" merge="false" sample_coverage="true" track_test_folders="true" runner="emma">
@@ -487,46 +467,20 @@
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method>
-        <option name="AntTarget" value="false" />
-        <option name="Make" value="false" />
+        <option name="AntTarget" enabled="false" />
+        <option name="Make" enabled="false" />
       </method>
     </configuration>
     <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Application.Mandelbrot" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.Gruple tests" />
     </list>
-    <configuration default="true" type="SpecsRunConfiguration" factoryName="Specs">
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="StructureViewFactory">
-    <option name="AUTOSCROLL_MODE" value="true" />
-    <option name="AUTOSCROLL_FROM_SOURCE" value="false" />
-    <option name="ACTIVE_ACTIONS" value="" />
-  </component>
   <component name="SvnConfiguration">
     <option name="USER" value="" />
     <option name="PASSWORD" value="" />
@@ -536,6 +490,8 @@
     <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
     <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
     <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
     <configuration useDefault="false">/Users/vwilliam/.subversion</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
     <supportedVersion>125</supportedVersion>
@@ -568,7 +524,7 @@
               <ChangeListInfo id="0149e85b-7360-4b48-8e68-fddea5cccf35" name="Default" comment="" />
             </list>
           </option>
-          <option name="updated" value="1254438223300" />
+          <option name="updated" value="1254673584180" />
         </task>
       </list>
     </option>
@@ -594,29 +550,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="7" y="22" width="1440" height="874" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="874" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" />
-      <window_info id="SVN Properties" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="-1" side_tool="false" />
-      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3262317" sideWeight="0.5" order="12" side_tool="false" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22557472" sideWeight="0.6644474" order="0" side_tool="false" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="6" side_tool="false" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22557472" sideWeight="0.6644474" order="1" side_tool="true" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39946738" sideWeight="0.5" order="11" side_tool="false" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3262317" sideWeight="0.5" order="0" side_tool="false" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20114942" sideWeight="0.6644474" order="3" side_tool="false" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3262317" sideWeight="0.5" order="12" side_tool="false" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22557472" sideWeight="0.41944075" order="0" side_tool="false" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933994" sideWeight="0.5" order="2" side_tool="false" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39946738" sideWeight="0.5" order="9" side_tool="false" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22557472" sideWeight="0.57123834" order="1" side_tool="true" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32516128" sideWeight="0.5" order="0" side_tool="false" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" />
+      <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" />
+      <window_info id="SVN Properties" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="8" side_tool="false" />
+      <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="6" side_tool="false" />
       <window_info id="EJB" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39946738" sideWeight="0.5" order="11" side_tool="false" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" />
     </layout>
@@ -629,8 +585,9 @@
     <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
     <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
     <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete class files before re-compile.&#10;Spawn a new process to run the example so it can outlive Ant." />
+    <option name="LAST_COMMIT_MESSAGE" value="Another attempt to address issue 4 by adding a random postfix to the uniqueId. It seems threadId + timestamp was not sufficient." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
@@ -648,6 +605,12 @@
     <MESSAGE value="Reveresed the previous change to the fields property. It is saved as&#10;immutable and returned as is. This is more efficient." />
     <MESSAGE value="Fixed issue 1: multiple threads were &quot;taking&quot; the same tuple at the same time." />
     <MESSAGE value="Delete class files before re-compile.&#10;Spawn a new process to run the example so it can outlive Ant." />
+    <MESSAGE value="Delete class files before re-compile.&#10;." />
+    <MESSAGE value="Fixed drag to redraw. Issue 2." />
+    <MESSAGE value="Issue 4. Fixed concurrency issue by making templates have a truly unique id (threadid was insufficient)." />
+    <MESSAGE value="Issue 4. Another attempt at fixing concurrency issue by deleting templates inside guarded section of code which finds matches." />
+    <MESSAGE value="Fixed bug in getMatch where a tuple match was attempting to use a template as an argument." />
+    <MESSAGE value="Another attempt to address issue 4 by adding a random postfix to the uniqueId. It seems threadId + timestamp was not sufficient." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -673,13 +636,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/org/gruple/Template.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="20" selection-start="1266" selection-end="1266" vertical-scroll-proportion="0.18471338">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/gruple/Tuple.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="112" column="26" selection-start="4004" selection-end="4004" vertical-scroll-proportion="0.8757062">
@@ -750,20 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="44" selection-start="2116" selection-end="2116" vertical-scroll-proportion="-13.263158">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Examples/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="80" selection-start="1192" selection-end="1192" vertical-scroll-proportion="4.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Examples/src/mandelbrot/Worker.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="47" selection-start="1810" selection-end="1810" vertical-scroll-proportion="0.0">
@@ -771,16 +713,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Examples/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="80" selection-start="1192" selection-end="1192" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="1" selection-start="4391" selection-end="4391" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/gruple/Space.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="453" column="46" selection-start="14716" selection-end="14716" vertical-scroll-proportion="0.0">
+        <state line="512" column="12" selection-start="16669" selection-end="16669" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gruple/Template.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="57" selection-start="1679" selection-end="1679" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Examples/src/mandelbrot/Master.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="141" column="5" selection-start="3681" selection-end="3681" vertical-scroll-proportion="0.6754386">
+        <state line="77" column="4" selection-start="2172" selection-end="2172" vertical-scroll-proportion="0.016949153">
           <folding />
         </state>
       </provider>

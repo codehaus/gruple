@@ -166,29 +166,29 @@
   <component name="IdProvider" IDEtalkID="B12D63E5A29B5ED51C7F59EB3C0D6DF8" />
   <component name="InspectionProjectProfileManager">
     <option name="PROJECT_PROFILE" value="Project Default" />
-    <option name="USE_PROJECT_LEVEL_SETTINGS" value="false" />
-    <scopes />
+    <option name="USE_PROJECT_PROFILE" value="true" />
+    <version value="1.0" />
     <profiles>
       <profile version="1.0" is_locked="false">
         <option name="myName" value="Project Default" />
         <option name="myLocal" value="false" />
-        <inspection_tool class="CyclomaticComplexity" level="WARNING" enabled="true">
+        <inspection_tool class="CyclomaticComplexity" enabled="true" level="WARNING" enabled_by_default="true">
           <option name="m_limit" value="10" />
         </inspection_tool>
-        <inspection_tool class="GroovyGetterCallCanBePropertyAccess" level="WARNING" enabled="true" />
-        <inspection_tool class="GroovyListGetCanBeKeyedAccess" level="WARNING" enabled="true" />
-        <inspection_tool class="GroovyListSetCanBeKeyedAccess" level="WARNING" enabled="true" />
-        <inspection_tool class="GroovyMapGetCanBeKeyedAccess" level="WARNING" enabled="true" />
-        <inspection_tool class="GroovyMapPutCanBeKeyedAccess" level="WARNING" enabled="true" />
-        <inspection_tool class="GroovyMethodWithMoreThanThreeNegations" level="WARNING" enabled="true" />
-        <inspection_tool class="GroovyMultipleReturnPointsPerMethod" level="WARNING" enabled="true">
+        <inspection_tool class="GroovyGetterCallCanBePropertyAccess" enabled="true" level="WARNING" enabled_by_default="true" />
+        <inspection_tool class="GroovyListGetCanBeKeyedAccess" enabled="true" level="WARNING" enabled_by_default="true" />
+        <inspection_tool class="GroovyListSetCanBeKeyedAccess" enabled="true" level="WARNING" enabled_by_default="true" />
+        <inspection_tool class="GroovyMapGetCanBeKeyedAccess" enabled="true" level="WARNING" enabled_by_default="true" />
+        <inspection_tool class="GroovyMapPutCanBeKeyedAccess" enabled="true" level="WARNING" enabled_by_default="true" />
+        <inspection_tool class="GroovyMethodWithMoreThanThreeNegations" enabled="true" level="WARNING" enabled_by_default="true" />
+        <inspection_tool class="GroovyMultipleReturnPointsPerMethod" enabled="true" level="WARNING" enabled_by_default="true">
           <option name="m_limit" value="1" />
         </inspection_tool>
-        <inspection_tool class="GroovyOverlyComplexMethod" level="WARNING" enabled="true">
+        <inspection_tool class="GroovyOverlyComplexMethod" enabled="true" level="WARNING" enabled_by_default="true">
           <option name="m_limit" value="10" />
         </inspection_tool>
-        <inspection_tool class="GroovySetterCallCanBePropertyAccess" level="WARNING" enabled="true" />
-        <inspection_tool class="MissingOverrideAnnotation" level="WARNING" enabled="true" />
+        <inspection_tool class="GroovySetterCallCanBePropertyAccess" enabled="true" level="WARNING" enabled_by_default="true" />
+        <inspection_tool class="MissingOverrideAnnotation" enabled="true" level="WARNING" enabled_by_default="true" />
       </profile>
     </profiles>
     <list size="4">
@@ -395,31 +395,6 @@
         <entry key="$PROJECT_DIR$">
           <value>
             <SvnBranchConfiguration>
-              <option name="branchMap">
-                <map>
-                  <entry key="https://gruple.googlecode.com/svn/branches">
-                    <value>
-                      <list />
-                    </value>
-                  </entry>
-                  <entry key="https://gruple.googlecode.com/svn/tags">
-                    <value>
-                      <list />
-                    </value>
-                  </entry>
-                  <entry key="https://gruple.googlecode.com/svn/wiki">
-                    <value>
-                      <list>
-                        <SvnBranchItem>
-                          <option name="creationDateMillis" value="1254408105288" />
-                          <option name="revision" value="3" />
-                          <option name="url" value="https://gruple.googlecode.com/svn/wiki/Overview.wiki" />
-                        </SvnBranchItem>
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
               <option name="branchUrls">
                 <list>
                   <option value="https://gruple.googlecode.com/svn/branches" />
