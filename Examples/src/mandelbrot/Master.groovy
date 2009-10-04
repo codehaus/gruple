@@ -49,6 +49,7 @@ class Master
 
     private int workers         // number of worker threads
     private int lines = 0       // # of scan lines per task
+    private int remainder = 0
 
     int xsize, ysize            // dimensions of window
     private Long jobId          // id for this computation
@@ -77,13 +78,20 @@ class Master
 		this.tasks = tasks
 		this.workers = workers
 
-        space = SpaceService.getSpace("mandelbrot");
         xsize = width
         ysize = height
+        // Check that parameters make sense
+        lines = ysize / tasks;  // scan lines per task
+        remainder = ysize - (lines*tasks)
+        if (remainder != 0) {
+            println "tasks must divide evenely into height"
+            System.exit(-1)
+        }
+
+        // Set up the tuplespace we will be using
+        space = SpaceService.getSpace("mandelbrot");
 
 		frame = new MandelbrotFrame(width, height, this)
-
-        lines = ysize / tasks;  // scan lines per task
 
         // create offscreen buffer
         offscreen = frame.createImage(xsize, ysize)
@@ -124,7 +132,7 @@ class Master
     protected void generateTasks() {
 
 
-        jobId = System.currentTimeMillis() + Math.round(Math.random()*32765)
+        jobId = System.currentTimeMillis()
         Map task = ["jobId":jobId, "x1":x1, "x2":x2, "y1":y1, "y2":y2, width:xsize, height:ysize, "lines":lines]
 
 
