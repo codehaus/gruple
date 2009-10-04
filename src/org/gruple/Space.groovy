@@ -308,7 +308,8 @@ class Space {
         long start = System.currentTimeMillis()
         long timeToWait = timeout
         synchronized (template) {
-            while (!shuttingDown && !(match = getMatch(antiTuple, true))) {
+            //while (!shuttingDown && !(match = getMatch(antiTuple, true))) {
+            while (!shuttingDown && !(match = getMatch(template, true))) {
                 if (timeToWait <= 0)
                     break
                 if (timeout == WAIT_FOREVER)
@@ -320,9 +321,11 @@ class Space {
                 }
             }
         }
+        /*
         if (match) {
             removeTemplate(template)
         }
+        */
         return match
     }
 
@@ -355,7 +358,8 @@ class Space {
         long start = System.currentTimeMillis()
         long timeToWait = timeout
         synchronized (template) {
-            while (!shuttingDown && !(match = getMatch(antiTuple, false))) {
+            //while (!shuttingDown && !(match = getMatch(antiTuple, false))) {
+            while (!shuttingDown && !(match = getMatch(template, false))) {
                 if (timeToWait <= 0)
                     break
                 if (timeout == WAIT_FOREVER)
@@ -367,9 +371,11 @@ class Space {
                 }
             }
         }
+        /*
         if (match) {
             removeTemplate(template)
         }
+        */
         return match
 
     }
@@ -448,7 +454,8 @@ class Space {
         }
     }
 
-    private Tuple getMatch(Tuple template, Boolean destroy) {
+    //private Tuple getMatch(Tuple template, Boolean destroy) {
+    private Tuple getMatch(Template template, Boolean destroy) {
 
         assert template
         assert destroy != null
@@ -492,6 +499,9 @@ class Space {
                         if (tuples.isEmpty())
                             tupleMap.remove(thash) // clean up map
                     }
+
+                    // dispose of the template
+                    removeTemplate(template)
                 }
             }
         }
