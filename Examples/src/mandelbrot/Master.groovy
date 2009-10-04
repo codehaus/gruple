@@ -108,7 +108,7 @@ class Master
         }
 
         (0..<workers).each {
-        	Thread worker = new Thread(new Worker())
+        	Thread worker = new Thread(new Worker(), it as String)
         	worker.start()
         }
 
