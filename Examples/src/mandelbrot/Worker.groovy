@@ -28,21 +28,23 @@ import org.gruple.*
  * @author Vanessa Williams <vanessa@fridgebuzz.com>
  */
 class Worker implements Runnable {
-
+    
     public void run() {
         Space space = SpaceService.getSpace("mandelbrot")
 
         Map template = createTaskTemplate()
         Map task
 
+        String threadName = Thread.currentThread().getName()
         while(true) {
             ArrayList points
             task = space.take(template)
-            println "Worker got task ${task['start']} for job ${task['jobId']}"
+            println "Worker $threadName got task ${task['start']} for job ${task['jobId']}"
             points = calculateMandelbrot(task)
             Map result = createResult(task['jobId'], task['start'], points)
 
-            println "Worker writing result for task ${result['start']} for job ${result['jobId']}"
+
+            println "Worker $threadName writing result for task ${result['start']} for job ${result['jobId']}"
             space.put(result)
         }
     }
