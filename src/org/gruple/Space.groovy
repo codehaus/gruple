@@ -475,7 +475,7 @@ class Space {
                 Collection allMatches
                 // XXX: deliberately being non-deterministic may be too expensive
                 allMatches = tuples.findAll {
-                    it.matches(template)
+                    it.matches(template.tuple)
                 }
                 if (allMatches.size() > 1)
                     tuple = allMatches.toArray()[random(allMatches.size()-1)] as Tuple
