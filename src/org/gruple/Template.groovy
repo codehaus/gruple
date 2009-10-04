@@ -38,8 +38,7 @@ class Template {
     * Id of the thread that owns this template. Used to uniquely identify template to
     * remove from the templateMap when a match is found.
     */
-    final def threadId
-
+    final String uniqueId
 
 
     /*
@@ -53,7 +52,10 @@ class Template {
     Template (Tuple tuple, Boolean destructive) {
         this.tuple = tuple
         this.destructive = destructive
-        this.threadId = Thread.currentThread().id
+        // create a unique identifier for this template from the thread id and time
+        String now = System.currentTimeMillis()
+        postfix = now[now.size()-6..now.size()-1]
+        this.threadId = Thread.currentThread().id + postfix
     }
 
     @Override
@@ -63,7 +65,7 @@ class Template {
         if (!o || this.class != o.class) return false
 
         if (destructive != o.destructive) return false
-        if (threadId != o.threadId) return false
+        if (uniqueId != o.uniqueId) return false
         if (tuple != o.tuple) return false
         return true
     }
@@ -72,7 +74,7 @@ class Template {
     int hashCode() {
         int result
         result = (destructive ? 1 : 0)
-        result = 31 * result + threadId.hashCode()
+        result = 31 * result + uniqueId.hashCode()
         result = 31 * result + tuple.hashCode()
         return result
     }
