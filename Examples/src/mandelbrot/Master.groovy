@@ -250,6 +250,10 @@ class MandelbrotFrame extends Frame
             y2 /= 2.0
             x1 -= x2 / 2.0
             y1 -= y2 / 2.0
+            master.x1 = x1
+            master.x2 = x2
+            master.y1 = y1
+            master.y2 = y2
             master.done = false
             master.drag = false
             master.offg.color = Color.black
