@@ -1,1 +1,0 @@
-Template: [lname:null, email:vanessa@fridgebuzz.com, age:22, fname:Vanessa]

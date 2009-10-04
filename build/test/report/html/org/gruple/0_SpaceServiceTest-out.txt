@@ -1,2 +1,0 @@
-getting tuple1 from default
-
