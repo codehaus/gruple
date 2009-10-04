@@ -54,8 +54,9 @@ class Template {
         this.destructive = destructive
         // create a unique identifier for this template from the thread id and time
         String now = System.currentTimeMillis()
-        postfix = now[now.size()-6..now.size()-1]
-        this.threadId = Thread.currentThread().id + postfix
+        String postfix = now[now.size()-6..now.size()-1]
+        String random = Math.round(Math.random() * 32767)
+        this.uniqueId = Thread.currentThread().id + postfix +random
     }
 
     @Override
