@@ -320,11 +320,6 @@ class Space {
                 }
             }
         }
-        /*
-        if (match) {
-            removeTemplate(template)
-        }
-        */
         return match
     }
 
@@ -369,11 +364,6 @@ class Space {
                 }
             }
         }
-        /*
-        if (match) {
-            removeTemplate(template)
-        }
-        */
         return match
 
     }
@@ -424,14 +414,10 @@ class Space {
         */
 
         def thash = tuple.tupleHash()
-        def tupleQueue
-        if (store.containsKey(thash)) {
-            tupleQueue = store[thash]
-        }
-        else {
-            tupleQueue = new ConcurrentLinkedQueue()
-            store[thash] = tupleQueue
-        }
+        ConcurrentLinkedQueue tupleQueue
+        // use an atomic action to create a new queue if necessary
+        store.putIfAbsent(thash, new ConcurrentLinkedQueue())
+        tupleQueue = store[thash]
         tupleQueue << tuple
 
         if (LOG.isLoggable(Level.FINE)) {
@@ -452,7 +438,6 @@ class Space {
         }
     }
 
-    //private Tuple getMatch(Tuple template, Boolean destroy) {
     private Tuple getMatch(Template template, Boolean destroy) {
 
         assert template
@@ -513,6 +498,7 @@ class Space {
         def thash = template.tuple.tupleHash()
         if (templateMap.containsKey(thash)) {
             def templates = templateMap[thash]
+            assert templates.contains(template)
             templates.remove(template)
             if (templates.isEmpty())
                 templateMap.remove(thash) // clean up map
