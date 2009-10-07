@@ -88,16 +88,16 @@ class Space {
     /*
     * A Map for holding Lists of Tuples.
     */
-    private Map tupleMap
+    private final Map tupleMap = new ConcurrentHashMap()
 
     /*
     * A Map for holding Lists of Templates waiting to be matched.
     */
-    private Map templateMap
+    private final Map templateMap = new ConcurrentHashMap()
 
     private volatile boolean shuttingDown = false
 
-    private Timer expiryTimer
+    private final Timer expiryTimer
 
     // Lock object to make certain no two threads get the same match
     private Object matchLock = new Object()
@@ -110,9 +110,6 @@ class Space {
      */
     protected Space(String name) {
         this.name = name
-        tupleMap = new ConcurrentHashMap()
-        templateMap = new ConcurrentHashMap()
-
         expiryTimer = new Timer("Expired Tuple Reaper", true) // is a daemon
     }
 
