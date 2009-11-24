@@ -21,8 +21,9 @@
 
 package mandelbrot
 
+import org.gruple.Spaces
 import org.gruple.Space
-import org.gruple.SpaceService
+
 import java.awt.Color
 import java.awt.Graphics
 import java.awt.Image
@@ -30,7 +31,6 @@ import java.awt.Frame
 import java.awt.event.MouseListener
 import java.awt.event.MouseMotionListener
 import java.awt.event.MouseEvent
-
 
 /**
 * Implementation of a mandelbrot computation program using a distributed worker
@@ -89,7 +89,7 @@ class Master
         }
 
         // Set up the tuplespace we will be using
-        space = SpaceService.getSpace("mandelbrot");
+        space = Spaces.mandelbrot
 
 		frame = new MandelbrotFrame(width, height, this)
 
