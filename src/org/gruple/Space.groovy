@@ -99,9 +99,6 @@ class Space {
 
     private final Timer expiryTimer
 
-    // Lock object to make certain no two threads get the same match
-    private Object matchLock = new Object()
-
     /**
      * Creates a new instance of TupleSpace.
      *
@@ -247,12 +244,14 @@ class Space {
 
         if (tuple.hasFormals())
             throw new IllegalArgumentException("Can't put a template/anti-tuple into the space")
-        
+
+        if (shuttingDown) return
+
         if (LOG.isLoggable(Level.FINE))
             LOG.fine("Putting tuple $tuple")
 
 
-        store(tuple, tupleMap)
+        storeTuple(tuple)
         if (ttl != FOREVER) expiryTimer.runAfter(ttl as int) { remove(tuple) }
 
         // search the template map. If a match is found, notify() the
@@ -295,11 +294,13 @@ class Space {
         if (!antiTuple)
             throw new IllegalArgumentException("Template may not be null.")
 
+        if (shuttingDown) return null
+
         if (LOG.isLoggable(Level.FINE))
             LOG.fine("Taking with template $antiTuple and timeout=$timeout")
 
         Template template = new Template(antiTuple, true)
-        store(template, templateMap)
+        storeTemplate(template)
 
         Tuple match
         long start = System.currentTimeMillis()
@@ -338,12 +339,14 @@ class Space {
         if (!antiTuple)
             throw new IllegalArgumentException("Template may not be null.")
 
+        if (shuttingDown) return null
+
         if (LOG.isLoggable(Level.FINE))
             LOG.fine("Getting with template $antiTuple and timeout=$timeout")
 
         // store a wrapped template tuple
         Template template = new Template(antiTuple, false)
-        store(template, templateMap)
+        storeTemplate(template)
 
         Tuple match
         long start = System.currentTimeMillis()
@@ -399,11 +402,11 @@ class Space {
 
     }
 
-    private store(tuple, Map store) {
+    private storeTuple(tuple) {
 
         assert tuple
-        assert store != null
 
+        Map store = tupleMap
         /*
         Use the tuple type hash to access the List
         to contain this tuple. If the appropriate List
@@ -411,15 +414,44 @@ class Space {
         */
 
         def thash = tuple.tupleHash()
-        ConcurrentLinkedQueue tupleQueue
+        List tupleList
         // use an atomic action to create a new queue if necessary
-        store.putIfAbsent(thash, new ConcurrentLinkedQueue())
-        tupleQueue = store[thash]
-        tupleQueue << tuple
+        store.putIfAbsent(thash, Collections.synchronizedList(new ArrayList()))
+        tupleList = store[thash] as List
+        // add the tuple at a random location in the list
+        if (tupleList.isEmpty()) {
+            tupleList << tuple
+        }
+        else {
+            int randomIndex = random(tupleList.size()-1)
+            tupleList.add(randomIndex, tuple)
+        }
 
         if (LOG.isLoggable(Level.FINE)) {
-            String storeType = (store == tupleMap) ? "tuple" : "template"
-            LOG.fine("Stored  $storeType $tuple")
+            LOG.fine("Stored tuple $tuple")
+        }
+    }
+
+    private storeTemplate(template) {
+
+        assert template
+
+        Map store = templateMap
+        /*
+        Use the tuple type hash to access the List
+        to contain this tuple. If the appropriate List
+        doesn't exist, create it.
+        */
+
+        def thash = template.tupleHash()
+        Queue templateQueue
+        // use an atomic action to create a new queue if necessary
+        store.putIfAbsent(thash, new ConcurrentLinkedQueue())
+        templateQueue = store[thash] as Queue
+        templateQueue << template
+
+        if (LOG.isLoggable(Level.FINE)) {
+            LOG.fine("Stored template $template")
         }
     }
 
@@ -430,8 +462,7 @@ class Space {
         def thash = tuple.tupleHash()
         if (tupleMap.containsKey(thash)) {
             def tuples = tupleMap[thash]
-            if (tuples.contains(tuple))
-                tuples.remove(tuple)
+            tuples.remove(tuple)
         }
     }
 
@@ -445,48 +476,50 @@ class Space {
 
         def tuple
         def thash = template.tupleHash()
-        Collection tuples
+        List tuples
         if (tupleMap.containsKey(thash)) {
 
-            synchronized(matchLock) { // Don't allow two threads to match the same tuple
+            tuples = tupleMap[thash] as List
 
-                tuples = tupleMap[thash]
+            if (destroy) {
 
-                Collection allMatches
-                // XXX: deliberately being non-deterministic may be too expensive
-                allMatches = tuples.findAll {
-                    it.matches(template.tuple)
+                synchronized(tuples) {
+                    tuple = tuples.find {
+                        it.matches(template.tuple)
+                    }
+                    if (tuple) tuples.remove(tuple)
                 }
-                if (allMatches.size() > 1)
-                    tuple = allMatches.toArray()[random(allMatches.size()-1)] as Tuple
-                else if (allMatches)
-                    tuple = allMatches.toArray()[0] as Tuple
-
-                /* Deterministic option
-                tuple = tuples.find {
-                    it.matches(template)
-                }
-                */
 
                 if (tuple) {
-
                     if (LOG.isLoggable(Level.FINE))
                         LOG.fine("Matching tuple found $tuple")
 
-                    if (destroy) {
-                        assert tuples != null && !tuples.isEmpty() && tuples.contains(tuple)
-                        tuples.remove(tuple)// extract the tuple if appropriate
-                        if (tuples.isEmpty())
-                            tupleMap.remove(thash) // clean up map
+                    if (tuples.isEmpty()) tupleMap.remove(thash) // clean up map
+                    
+                    // dispose of the template
+                    removeTemplate(template)
+                }
+
+            }
+            else {
+
+                synchronized(tuples) {
+                    tuple = tuples.find {
+                        it.matches(template.tuple)
                     }
+                }
+
+                if (tuple) {
+                    if (LOG.isLoggable(Level.FINE))
+                        LOG.fine("Matching tuple found $tuple")
 
                     // dispose of the template
                     removeTemplate(template)
                 }
+
             }
+
         }
-
-
         return tuple as Tuple
     }
 
@@ -504,7 +537,7 @@ class Space {
 
     private int random(int max) {
         if (max == 0) return 0
-        int result = Math.round(Math.random()*max)
+        int result = Math.round(Math.random()*max) as int
         // just in case rounding causes boundary violation
         if (result < 0) return 0
         if (result > max) return max
