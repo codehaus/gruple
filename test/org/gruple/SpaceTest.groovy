@@ -67,7 +67,7 @@ class SpaceTest extends GroovyTestCase {
 
         try {
             space.put(templates[0])
-            fail "Expected IllegalArgumentException"
+            if (templates[0].hasFormals()) fail "Expected IllegalArgumentException"
         } catch (Exception success) {}
         
         0.upto(100) {
