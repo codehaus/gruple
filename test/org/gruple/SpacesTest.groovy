@@ -15,7 +15,7 @@
  */
 
 /*
- * SpaceServiceTest.groovy
+ * SpacesTest.groovy
  * Created on Apr 7, 2009
  */
 
@@ -25,7 +25,7 @@ package org.gruple
  *
  * @author Vanessa Williams <vanessa@fridgebuzz.com>
  */
-class SpaceServiceTest extends GroovyTestCase {
+class SpacesTest extends GroovyTestCase {
 
     static TUPLE1 = [fname:"Vanessa", lname:"Williams", email:"vanessa@fridgebuzz.com", age:22]
     static TEMPLATE1 = [fname:"Vanessa", lname:null, email:"vanessa@fridgebuzz.com", age:22]
@@ -40,21 +40,25 @@ class SpaceServiceTest extends GroovyTestCase {
 
     void testService() {
 
-        Space defaultSpace = SpaceService.getSpace()
+        Space defaultSpace = Spaces.getSpace()
         assertNotNull(defaultSpace)
         assertEquals(defaultSpace.name, "default")
 
-        Space fooSpace = SpaceService.getSpace("foo")
+        Space fooSpace = Spaces.getSpace("foo")
         assertNotNull(fooSpace)
+        Space barSpace = Spaces["bar"]
+        assertNotNull(barSpace)
+        Space bazSpace = Spaces.baz
+        assertNotNull(bazSpace)
 
         defaultSpace.put(tuple1)
         fooSpace.put(tuple1)
         println("getting tuple1 from default")
         assertEquals(tuple1, defaultSpace.get(template1))
         
-        SpaceService.close()
+        Spaces.close()
         assertNull(defaultSpace.get(template1))
-        SpaceService.closeAll()
+        Spaces.closeAll()
         assertNull(fooSpace.get(template1))
         
     }
