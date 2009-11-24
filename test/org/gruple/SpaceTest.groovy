@@ -52,7 +52,7 @@ class SpaceTest extends GroovyTestCase {
             tuples << fields
             templates << makeSomeFormals(fields)
         }
-        space = SpaceService.getSpace()
+        space = Spaces.getSpace()
     }
 
     void testSpace() {
