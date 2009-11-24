@@ -30,7 +30,7 @@ import org.gruple.*
 class Worker implements Runnable {
     
     public void run() {
-        Space space = SpaceService.getSpace("mandelbrot")
+        Space space = Spaces["mandelbrot"]
 
         Map template = createTaskTemplate()
         Map task
