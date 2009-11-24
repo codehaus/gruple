@@ -15,7 +15,7 @@
  */
 
 /*
- * SpaceService.groovy
+ * Spaces.groovy
  * Created on Apr 4, 2009
  */
 
@@ -26,13 +26,25 @@ package org.gruple
  *
  * @author Vanessa Williams <vanessa@fridgebuzz.com>
  */
-final class SpaceService {
+final class Spaces {
 
     /**
     * Holds references to named Spaces
     */
     private static Map spaceMap = new HashMap()
 
+    static Space get(String name) {
+        return getSpace(name);
+    }
+
+    static getAt(String name) {
+        return getSpace(name)
+    }
+
+    static get(String name) {
+        return getSpace(name)
+    }
+    
     /**
     * Returns the named TupleSpace. If it doesn't exist, it
     * is created first. If no name is provided, the default
