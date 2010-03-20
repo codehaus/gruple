@@ -21,7 +21,7 @@
 
 package org.gruple
 
-import java.util.logging.*
+import java.util.logging.Logger
 
 /**
  * An immutable Tuple data structure. Note that
@@ -84,17 +84,17 @@ final class Tuple implements Serializable {
         fields.each { key, value ->
             if (!(key instanceof String)) {
                 throw new IllegalArgumentException(
-                   "Illegal key ${key.toString()}. All keys must be Strings.")
+                   "Illegal key ${key.toString()}. All keys must be Strings.".toString())
             }
             if (value != null) {
                 if (value.class.isArray()) {
                     throw new IllegalArgumentException(
-                        "Illegal entry $key : $value" +
+                        "Illegal entry $key : ${value.toString()}" +
                         "Arrays are not currently supported. Please use a List instead.")
                 }
                 if (!(value instanceof Closure) && mutableType(value)) {
                     throw new IllegalArgumentException(
-                        "Illegal entry $key : $value." +
+                        "Illegal entry $key : ${value.toString()}" +
                         "All Tuple fields must be of immutable type; " +
                         "use lang.groovy.Immutable annotation if necessary")
                 }
@@ -171,6 +171,7 @@ final class Tuple implements Serializable {
 
             if (aValue != null) {
                 if (aValue instanceof Closure) {
+                    // FYI, I wrote this line, but I have no longer have any idea how it works
                     if (!aValue.call(tValue)) return false
                 } else {
                     if (tValue.class != aValue.class) return false  // non-matching field type
@@ -186,7 +187,7 @@ final class Tuple implements Serializable {
     protected boolean hasFormals() {
 
         if (this.formal == null) {
-            this.formal=fields.containsValue(null) || fields.any {it instanceof Closure}
+            this.formal = (fields.containsValue(null) || fields.any {it instanceof Closure})
         }
         return formal
     }
@@ -221,7 +222,7 @@ final class Tuple implements Serializable {
             }
         } else if (obj instanceof Map) {
             result = false // by default maps are ok
-            // recursively look inside collections for mutable types
+            // recursively look inside maps for mutable types
             for (entry in obj) {
                 if (mutableType(entry.key) || mutableType(entry.value)) {
                   result = true
@@ -238,22 +239,10 @@ final class Tuple implements Serializable {
     */
     private Object ensureImmutableCollections(Object obj) {
         
-        def result
+        def result = obj
         if (obj != null && (obj instanceof Collection || obj instanceof Map)) {
             result = obj.clone().asImmutable()
-/*
-            switch(obj) {
-                case SortedSet: result = new TreeSet(obj as SortedSet).asImmutable(); break;
-                case SortedMap: result = new TreeMap(obj as SortedMap).asImmutable(); break;
-                case Map    : result = new HashMap(obj as Map).asImmutable(); break;
-                case List   : result = new ArrayList(obj as List).asImmutable(); break;
-                case Set    : result = new HashSet(obj as Set).asImmutable(); break;
-                default     : result = obj.asImmutable(); break;
-            }
-*/
-        } else {
-            result = obj
-        }
+        } 
         return result
     }
 
