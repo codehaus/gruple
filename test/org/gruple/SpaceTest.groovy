@@ -22,12 +22,15 @@
 package org.gruple
 
 import org.codehaus.groovy.runtime.TimeCategory
+import java.util.logging.Logger
 
 /**
  *
  * @author Vanessa Williams <vanessa@fridgebuzz.com>
  */
 class SpaceTest extends GroovyTestCase {
+
+    private static final Logger LOG = Logger.getLogger(SpaceTest.name)
 
     private static final fieldTypes =
         [Integer.class, Short.class, Long.class, Byte.class,
@@ -52,7 +55,7 @@ class SpaceTest extends GroovyTestCase {
             tuples << fields
             templates << makeSomeFormals(fields)
         }
-        space = Spaces.getSpace()
+        space = Spaces.getSpace("test")
     }
 
     void testSpace() {
@@ -63,12 +66,12 @@ class SpaceTest extends GroovyTestCase {
         try {
             space.put(null)
             fail "Expected IllegalArgumentException"
-        } catch (Exception success) {}
+        } catch (IllegalArgumentException success) {}
 
         try {
             space.put(templates[0])
-            if (templates[0].hasFormals()) fail "Expected IllegalArgumentException"
-        } catch (Exception success) {}
+            if (new Tuple(templates[0]).hasFormals()) fail "Expected IllegalArgumentException"
+        } catch (IllegalArgumentException success) {}
         
         0.upto(100) {
             space.put(tuples[it])
@@ -93,12 +96,13 @@ class SpaceTest extends GroovyTestCase {
         49.downto(0) {
             tuple = space.get(templates[it] as Map, 10)
             assertNull(tuple)
+
         }
 
         // test expiring tuples
         space.put(tuples[1], 10L)   // tuple has ttl of 10ms
         sleep(20L)                  // wait 20ms to be sure
-        tuple = space.take(templates[1] as Map,0)
+        tuple = space.take(templates[1] as Map, Space.NO_WAIT)
         assertNull(tuple)
 
         // TODO: test that the space data structures are all empty
@@ -118,11 +122,75 @@ class SpaceTest extends GroovyTestCase {
 
     }
 
+    void testClosures() {
+        space.put([price:10])
+        def tuple = space.take([price:{it > 5}])
+        assertNotNull(tuple)
+    }
+
     void testLeftShift() {
         space << (tuples[2])
         assertNotNull(space.take(templates[2]))
     }
-    
+
+
+    void testTransactions() {
+
+        // let's start with some really basic stuff involving a single transaction
+
+        // test 1:
+        // in txn: in txn take tuple A, do something, put tuple B
+        // no txn: read tuple A, should succeed, read tuple B, should fail
+        // in txn: commit txn
+        // no txn: read tuple A, should fail
+
+        space.put(tuples[2]);
+
+        Transaction txn = new Transaction()
+
+        def tuple = space.take(templates[2], Space.NO_WAIT, txn)
+        assertNotNull(tuple)
+        tuple = space.get(templates[2], Space.NO_WAIT)
+        assertNotNull(tuple)
+
+        space.put(tuples[3], Space.FOREVER, txn)
+        tuple = space.get(templates[3], Space.NO_WAIT)
+        assertNull(tuple)
+
+        //space.commit(txn)
+        txn.commit()
+
+        tuple = space.get(templates[2], Space.NO_WAIT)
+        assertNull(tuple)
+
+        // test 2:
+        // in txn: take tuple A, do something, put tupble B
+        // no txn: take tuple A, should fail, read tuple B should fail
+        // in txn: rollback transaction
+        // no txn: take tuple A should succeed, read tuple B should fail
+
+        tuple = space.take(templates[3], Space.NO_WAIT, txn)
+        assertNotNull(tuple)
+
+        space.put(tuples[4], Space.FOREVER, txn)
+
+        tuple = space.take(templates[3], Space.NO_WAIT)
+        assertNull(tuple)
+
+        tuple = space.get(templates[4], Space.NO_WAIT)
+        assertNull(tuple)
+
+        //space.rollback(txn)
+        txn.rollback()
+
+        tuple = space.take(templates[3], Space.NO_WAIT)
+        assertNotNull(tuple)
+
+        tuple = space.get(templates[4], Space.NO_WAIT)
+        assertNull(tuple)
+
+    }
+
     /*
      * Generate a random number of actual fields. Field types are
      * randomly chosen from a valid set, and field values are randomly
@@ -223,6 +291,6 @@ class SpaceTest extends GroovyTestCase {
         if (result > max) return max
         return result
     }
-    
+
 }
 
