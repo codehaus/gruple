@@ -357,50 +357,45 @@ class Space {
             long start = System.currentTimeMillis()
             long timeToWait = timeout
 
-
+            TupleStore rollbackStore
             if (txn != null) {
                 // make sure we're part of the transaction
                 enroll(txn)
                 // store the template in a temporary store
-                TupleStore rollbackStore = rollbackStores[txn]
+                rollbackStore = rollbackStores[txn]
                 rollbackStore.storeTemplate(template)
-
-                synchronized (template) {
-                    while (!shuttingDown) {
-                        // check the temporary store for a match 1st
-                        match = rollbackStore.getMatch(template, true)
-                        if (match) break
-                        // if none found, check the main store
-                        match = store.getMatch(template, true)
-                        if (match) break
-                        // wait, if necessary
-                        timeToWait = doWait(template, timeout, timeToWait, start)
-                        if (timeToWait <= 0) break
-                    }
-                }
-                // if a match is found, save it in a working store so it can still be read by other threads
-                // and can be returned to the main store if the transaction is aborted/rolledback
-                if (match) {
-                    TupleStore workingStore = workingStores[txn]
-                    workingStore.storeTuple(match)
-                }
-                else {
-                    rollbackStore.removeTemplate(template)
-                }
             }
             else {
                 store.storeTemplate(template)
-                synchronized (template) {
-                    while (!shuttingDown && !(match = store.getMatch(template, true))) {
-                        timeToWait = doWait(template, timeout, timeToWait, start)
-                        if (timeToWait <= 0) break;
-                    }
-                }
-                // clean up the template we stored, in case getMatch couldn't do it for us
-                if (!match) store.removeTemplate(template)
-                
             }
 
+            synchronized (template) {
+                while (!shuttingDown) {
+                    if (txn != null) {
+                        // check the temporary store for a match 1st
+                        match = rollbackStore.getMatch(template, true)
+                        if (match) break
+                    }
+                    // check the main store
+                    match = store.getMatch(template, true)
+                    if (match) break
+                    // wait, if necessary
+                    timeToWait = doWait(template, timeout, timeToWait, start)
+                    if (timeToWait <= 0) break
+                }
+            }
+
+            if (match && txn != null) {
+                // if a match is found, save it in a working store so it can still be read by other threads
+                // and can be returned to the main store if the transaction is aborted/rolledback
+                TupleStore workingStore = workingStores[txn]
+                workingStore.storeTuple(match)
+            }
+            else {
+                // cleanup templates not removed by getMatch
+                if (txn != null) rollbackStore.removeTemplate(template)
+                else store.removeTemplate(template)
+            }
         }
         finally {
             spaceLock.readLock().unlock()
@@ -441,52 +436,46 @@ class Space {
 
             long start = System.currentTimeMillis()
             long timeToWait = timeout
+            TupleStore rollbackStore
             if (txn != null) {
                 // make sure we're enrolled in the transaction
                 enroll(txn)
                 // store the template in a temporary store
-                TupleStore rollbackStore = rollbackStores[txn]
+                rollbackStore = rollbackStores[txn]
                 rollbackStore.storeTemplate(template)
-
-                synchronized (template) {
-                    while (!shuttingDown) {
-                        // check the temporary store for a match 1st
-                        match = rollbackStore.getMatch(template, false)
-                        if (match) break
-                        // if none found, check the main store
-                        match = store.getMatch(template, false)
-                        if (match) break
-                        // if still none found, check working stores of other transactions
-                        match = searchWorkingStores(template, txn)
-                        if (match) break
-                        // wait, if necessary
-                        timeToWait = doWait(template, timeout, timeToWait, start)
-                        if (timeToWait <= 0) break
-                    }
-                }
-                // clean up template
-                if (!match) rollbackStore.removeTemplate(template)
             }
             else {
                 store.storeTemplate(template)
-
-                synchronized (template) {
-                    while (!shuttingDown) {
-                        // search the local store
-                        match = store.getMatch(template, false)
-                        if (match) break
-                        // if not found, check the working stores of all transactions
-                        match = searchWorkingStores(template)
-                        if (match) break
-                        // wait if necessary
-                        timeToWait = doWait(template, timeout, timeToWait, start)
-                        if (timeToWait <= 0) break;
-                    }
-                }
-                // clean up the template if getMatch couldn't do it
-                if (!match) store.removeTemplate(template)
             }
 
+            synchronized (template) {
+                while (!shuttingDown) {
+                    if (txn != null) {
+                        // check the temporary store for a match 1st
+                        match = rollbackStore.getMatch(template, false)
+                        if (match) break
+                    }
+                    // if none found, check the main store
+                    match = store.getMatch(template, false)
+                    if (match) break
+                    // if still none found, check working stores of all transactions
+                    match = searchWorkingStores(template, txn)
+                    if (match) break
+                    // wait, if necessary
+                    timeToWait = doWait(template, timeout, timeToWait, start)
+                    if (timeToWait <= 0) break
+                }
+            }
+
+            // clean up templates
+            if (!match) {
+                if (txn != null) {
+                    rollbackStore.removeTemplate(template)
+                }
+                else {
+                    store.removeTemplate(template)
+                }
+            }
         }
         finally {
             // clean up the template we stored, in case getMatch couldn't do it for us
