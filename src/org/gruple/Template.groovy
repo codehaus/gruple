@@ -1,7 +1,5 @@
 package org.gruple
 
-import org.gruple.Tuple
-
 /*
  *    Copyright 2009 Vanessa Williams
  *
