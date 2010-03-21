@@ -6,16 +6,19 @@
   </component>
   <component name="ChangeListManager" verified="true">
     <list default="true" readonly="true" id="13e88136-bd47-48a3-ab1b-1564a4464e7a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruple.ipr" afterPath="$PROJECT_DIR$/Gruple.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/gruple.jar" afterPath="$PROJECT_DIR$/dist/gruple.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/org/gruple/SpaceTest.groovy" afterPath="$PROJECT_DIR$/test/org/gruple/SpaceTest.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Examples/Examples.iml" afterPath="$PROJECT_DIR$/Examples/Examples.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/gruple/Transaction.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/TupleStore.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/TupleStore.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruple.iws" afterPath="$PROJECT_DIR$/Gruple.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/org/gruple/Space.groovy" afterPath="$PROJECT_DIR$/src/org/gruple/Space.groovy" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruple.iml" afterPath="$PROJECT_DIR$/Gruple.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/gruple/TupleStore.groovy" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/org/gruple/MemoryTupleStore.groovy" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/Spaces.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/Spaces.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/Tuple.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/Tuple.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/deprecated-list.html" afterPath="$PROJECT_DIR$/doc/gapi/deprecated-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/Space.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/Space.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/help-doc.html" afterPath="$PROJECT_DIR$/doc/gapi/help-doc.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/index-all.html" afterPath="$PROJECT_DIR$/doc/gapi/index-all.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/package-summary.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/package-summary.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/gruple.jar" afterPath="$PROJECT_DIR$/dist/gruple.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/MemoryTupleStore.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/MemoryTupleStore.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/Transaction.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/Transaction.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/Template.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/Template.html" />
     </list>
     <ignored path=".idea/workspace.xml" />
     <ignored path="Gruple.iws" />
@@ -50,6 +53,21 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <line_breakpoints>
+      <breakpoint url="file://$PROJECT_DIR$/src/org/gruple/Transaction.groovy" line="50" class="Class at Transaction.groovy:50" package="">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_any>
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -94,43 +112,7 @@
       <file leaf-file-name="Space.groovy" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/gruple/Space.groovy">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="464" column="8" selection-start="17200" selection-end="17200" vertical-scroll-proportion="0.39118457">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MemoryTupleStore.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/gruple/MemoryTupleStore.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="112" column="46" selection-start="3223" selection-end="3223" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Spaces.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/gruple/Spaces.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="19" selection-start="2312" selection-end="2312" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpacesTest.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/org/gruple/SpacesTest.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="1770" selection-end="1770" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpaceTest.groovy" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/org/gruple/SpaceTest.groovy">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="276" column="0" selection-start="8331" selection-end="8331" vertical-scroll-proportion="0.0">
+            <state line="477" column="13" selection-start="17346" selection-end="17346" vertical-scroll-proportion="0.19548872">
               <folding />
             </state>
           </provider>
@@ -149,18 +131,18 @@
         <option value="$PROJECT_DIR$/Examples/src/mandelbrot/Worker.groovy" />
         <option value="$PROJECT_DIR$/Examples/build.properties" />
         <option value="$PROJECT_DIR$/test/org/gruple/TupleTest.groovy" />
-        <option value="$PROJECT_DIR$/src/org/gruple/Template.groovy" />
         <option value="$PROJECT_DIR$/Examples/build.xml" />
         <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/Examples/src/mandelbrot/Master.groovy" />
         <option value="$PROJECT_DIR$/src/org/gruple/TupleStore.java" />
         <option value="$PROJECT_DIR$/src/org/gruple/Tuple.groovy" />
         <option value="$PROJECT_DIR$/logging.properties" />
-        <option value="$PROJECT_DIR$/src/org/gruple/TupleStore.groovy" />
-        <option value="$PROJECT_DIR$/src/org/gruple/Transaction.groovy" />
         <option value="$PROJECT_DIR$/src/org/gruple/Spaces.groovy" />
         <option value="$PROJECT_DIR$/test/org/gruple/SpaceTest.groovy" />
+        <option value="$PROJECT_DIR$/src/org/gruple/Transaction.groovy" />
+        <option value="$PROJECT_DIR$/src/org/gruple/TupleStore.groovy" />
         <option value="$PROJECT_DIR$/src/org/gruple/MemoryTupleStore.groovy" />
+        <option value="$PROJECT_DIR$/src/org/gruple/Template.groovy" />
         <option value="$PROJECT_DIR$/src/org/gruple/Space.groovy" />
       </list>
     </option>
@@ -349,11 +331,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="gapi" />
+              <option name="myItemId" value="gruple" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -681,14 +663,14 @@
     <layout>
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3262317" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3053161" sideWeight="0.03974359" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3053161" sideWeight="0.71794873" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3053161" sideWeight="0.71794873" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32051283" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15732759" sideWeight="0.71794873" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27307692" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27307692" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4576923" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39840284" sideWeight="0.6644474" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -715,7 +697,7 @@
     <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
     <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial check-in." />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplified code considerably." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -728,10 +710,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Keep fields Map mutable inside Tuple and only return an immutable&#10;Map from getFields.&#10;Make hasFormals() more efficient by computing only once.&#10;Replaced assertion in matches() to check and throw an IllegalArgumentException: otherwise TupleTest could not succeed in testing matches() properly." />
-    <MESSAGE value="Groovy 1.6.3 has changed groovy.time.Duration to groovy.time.TimeDuration." />
-    <MESSAGE value="In testMatches, look for an IllegalArgumentException instead of trying to catch an AssertionError: the latter doesn't seem to work." />
-    <MESSAGE value="Made all fields final." />
     <MESSAGE value="Reveresed the previous change to the fields property. It is saved as&#10;immutable and returned as is. This is more efficient." />
     <MESSAGE value="Fixed issue 1: multiple threads were &quot;taking&quot; the same tuple at the same time." />
     <MESSAGE value="Delete class files before re-compile.&#10;Spawn a new process to run the example so it can outlive Ant." />
@@ -751,7 +729,12 @@
     <MESSAGE value="Initial check-in. Basic default logging config. Use JVM param&#10;to use it." />
     <MESSAGE value="Mostly cleanup." />
     <MESSAGE value="Cleanup of imports" />
+    <MESSAGE value="Changed groovy versions." />
     <MESSAGE value="Initial check-in." />
+    <MESSAGE value="Cleaned-up imports" />
+    <MESSAGE value="Transactions implemented." />
+    <MESSAGE value="Added tests for transactions." />
+    <MESSAGE value="Simplified code considerably." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -777,11 +760,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/build.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="78" selection-start="1129" selection-end="1129" vertical-scroll-proportion="-1.2737557" />
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../../../local/groovy-1.6.3/lib/groovy-1.6.3.jar!/org/codehaus/groovy/runtime/callsite/PogoMetaMethodSite.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="22" selection-start="1132" selection-end="1132" vertical-scroll-proportion="0.0" />
@@ -814,44 +792,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/gruple/Template.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="6" selection-start="913" selection-end="913" vertical-scroll-proportion="-0.33082706">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/gruple/TupleStore.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="14" selection-start="1767" selection-end="1767" vertical-scroll-proportion="0.7518797">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/gruple/Transaction.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="31" selection-start="1172" selection-end="1172" vertical-scroll-proportion="0.73333335">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/gruple/Tuple.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="12" selection-start="1524" selection-end="1524" vertical-scroll-proportion="1.325">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/org/gruple/SpacesTest.groovy">
       <provider selected="true" editor-type-id="text-editor">
         <state line="60" column="0" selection-start="1770" selection-end="1770" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/gruple/MemoryTupleStore.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="46" selection-start="3223" selection-end="3223" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -863,16 +806,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/build.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="87" selection-start="274" selection-end="274" vertical-scroll-proportion="0.13578501">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gruple/Transaction.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="64" selection-start="844" selection-end="844" vertical-scroll-proportion="0.2748538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gruple/TupleStore.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="35" selection-start="808" selection-end="808" vertical-scroll-proportion="-0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/org/gruple/SpaceTest.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="276" column="0" selection-start="8331" selection-end="8331" vertical-scroll-proportion="0.0">
+        <state line="96" column="0" selection-start="2713" selection-end="2713" vertical-scroll-proportion="-1.8869681">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gruple/Tuple.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="0" selection-start="4393" selection-end="4393" vertical-scroll-proportion="0.16489361">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gruple/Template.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/gruple/MemoryTupleStore.groovy">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="0" selection-start="3773" selection-end="3773" vertical-scroll-proportion="0.17154256">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/gruple/Space.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="464" column="8" selection-start="17200" selection-end="17200" vertical-scroll-proportion="0.39118457">
+        <state line="477" column="13" selection-start="17346" selection-end="17346" vertical-scroll-proportion="0.19548872">
           <folding />
         </state>
       </provider>
