@@ -66,8 +66,13 @@ public class MemoryTupleStore implements TupleStore {
             tupleList << tuple
         }
         else {
-            int randomIndex = random(tupleList.size()-1)
-            tupleList.add(randomIndex, tuple)
+            if (tupleList.isEmpty()) {
+                tupleList.add(tuple)
+            }
+            else {
+                int randomIndex = random(tupleList.size()-1)
+                tupleList.add(randomIndex, tuple)
+            }
         }
 
         if (LOG.isLoggable(Level.FINE)) {
