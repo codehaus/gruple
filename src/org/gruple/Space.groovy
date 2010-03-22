@@ -185,7 +185,7 @@ class Space {
             throw new IllegalArgumentException("Field map may not be null.")
 
         Tuple match = take(new Tuple(templateFields), timeout, txn)
-        return makeTupleIntoMutableMap(match)
+        return makeTupleIntoMap(match)
     }
 
     /**
@@ -224,7 +224,7 @@ class Space {
             throw new IllegalArgumentException("Field map may not be null.")
 
         Tuple match = get(new Tuple(templateFields), timeout, null)
-        return makeTupleIntoMutableMap(match)
+        return makeTupleIntoMap(match)
     }
 
     /**
@@ -267,8 +267,8 @@ class Space {
         if (LOG.isLoggable(Level.FINE))
             LOG.fine("Putting tuple $tuple".toString())
 
-        spaceLock.readLock().lock()
-        try {
+//        spaceLock.readLock().lockInterruptibly()
+//        try {
             // make sure the transaction knows about this space's participation
             List templates
             if (txn != null) {
@@ -283,23 +283,24 @@ class Space {
                 }
 
                 templates = rollbackStore.getWaitingTemplates(tuple)
-                Template lastTemplate = templates.isEmpty() ? null : templates.last()
-                if (lastTemplate != null && !lastTemplate.destructive) {
-                    // we could notify more waiting threads
-                    // search the main store and other transactions for other possible candidates
-                    templates.add(store.getWaitingTemplates(tuple))
-                    lastTemplate = templates.isEmpty() ? null : templates.last()
-                    if (lastTemplate != null && !lastTemplate.destructive) {
-                        // searching the main store still leaves us with the possibility of
-                        // notifying more threads. Search all transactional rollback stores
-                        for (entry in rollbackStores) {
-                            TupleStore rStore = entry.value
-                            templates.add(rStore.getWaitingTemplates(tuple))
-                            lastTemplate = templates.isEmpty() ? null : templates.last()
-                            if (lastTemplate != null && lastTemplate.destructive) break
-                        }
-                    }
-                }
+
+//                Template lastTemplate = templates.isEmpty() ? null : templates.last()
+//                if (lastTemplate != null && !lastTemplate.destructive) {
+//                    // we could notify more waiting threads
+//                    // search the main store and other transactions for other possible candidates
+//                    templates.add(store.getWaitingTemplates(tuple))
+//                    lastTemplate = templates.isEmpty() ? null : templates.last()
+//                    if (lastTemplate != null && !lastTemplate.destructive) {
+//                        // searching the main store still leaves us with the possibility of
+//                        // notifying more threads. Search all transactional rollback stores
+//                        for (entry in rollbackStores) {
+//                            TupleStore rStore = entry.value
+//                            templates.add(rStore.getWaitingTemplates(tuple))
+//                            lastTemplate = templates.isEmpty() ? null : templates.last()
+//                            if (lastTemplate != null && lastTemplate.destructive) break
+//                        }
+//                    }
+//                }
             }
             else {
                 store.storeTuple(tuple)
@@ -314,12 +315,14 @@ class Space {
             }
 
             for (Template template in templates) {
-                template.notify()
+                synchronized(template) {
+                    template.notify()
+                }
             }
-        }
-        finally {
-            spaceLock.readLock().unlock()
-        }
+//        }
+//        finally {
+//            spaceLock.readLock().unlock()
+//        }
 
 
 
@@ -351,8 +354,8 @@ class Space {
 
         Tuple match
         Template template = new Template(antiTuple, true)
-        spaceLock.readLock().lock()
-        try {
+//        spaceLock.readLock().lockInterruptibly()
+//        try {
             
             long start = System.currentTimeMillis()
             long timeToWait = timeout
@@ -380,8 +383,8 @@ class Space {
                     match = store.getMatch(template, true)
                     if (match) break
                     // wait, if necessary
+                    if (timeToWait <= 0 && timeout != Space.WAIT_FOREVER) break
                     timeToWait = doWait(template, timeout, timeToWait, start)
-                    if (timeToWait <= 0) break
                 }
             }
 
@@ -396,10 +399,10 @@ class Space {
                 if (txn != null) rollbackStore.removeTemplate(template)
                 else store.removeTemplate(template)
             }
-        }
-        finally {
-            spaceLock.readLock().unlock()
-        }
+//        }
+//        finally {
+//            spaceLock.readLock().unlock()
+//        }
         return match
 
     }
@@ -429,8 +432,8 @@ class Space {
             LOG.fine("Getting with template $antiTuple and timeout=$timeout")
 
         Tuple match
-        spaceLock.readLock().lock()
-        try {
+//        spaceLock.readLock().lockInterruptibly()
+//        try {
             
             Template template = new Template(antiTuple, false)
 
@@ -462,8 +465,8 @@ class Space {
                     match = searchWorkingStores(template, txn)
                     if (match) break
                     // wait, if necessary
+                    if (timeToWait <= 0 && timeout != Space.WAIT_FOREVER) break
                     timeToWait = doWait(template, timeout, timeToWait, start)
-                    if (timeToWait <= 0) break
                 }
             }
 
@@ -476,11 +479,11 @@ class Space {
                     store.removeTemplate(template)
                 }
             }
-        }
-        finally {
-            // clean up the template we stored, in case getMatch couldn't do it for us
-            spaceLock.readLock().unlock()
-        }
+//        }
+//        finally {
+//            // clean up the template we stored, in case getMatch couldn't do it for us
+//            spaceLock.readLock().unlock()
+//        }
         return match
 
     }
@@ -518,15 +521,16 @@ class Space {
      *
      * @see org.gruple.Transaction
      */
-    protected commit(Transaction txn) {
+    protected synchronized commit(Transaction txn) {
 
-        spaceLock.writeLock().lock()
-        try{
+//        spaceLock.writeLock().lockInterruptibly()
+//        try{
             // insert tuples from rollback store into main store
             TupleStore rStore = rollbackStores[txn]
             List rTuples = rStore.allTuples
             for (tuple in rTuples) {
-                store.storeTuple(tuple)
+//                store.storeTuple(tuple)
+                put(tuple)
             }
 
             // remove tuples in working store from main store
@@ -537,14 +541,14 @@ class Space {
             }
 
             // discard the transaction and its stores
-            rStore.deleteStorage()
+            transactions.remove(txn)
             rollbackStores.remove(txn)
-            wStore.deleteStorage()
+            rStore.deleteStorage()
             workingStores.remove(txn)
-           transactions.remove(txn)
-        } finally {
-            spaceLock.writeLock().unlock()
-        }
+            wStore.deleteStorage()
+//        } finally {
+//            spaceLock.writeLock().unlock()
+//        }
     }
 
     /**
@@ -553,42 +557,37 @@ class Space {
      *
      * @see org.gruple.Transaction
      */
-    protected rollback(Transaction txn) {
+    protected synchronized rollback(Transaction txn) {
 
-        spaceLock.writeLock().lock()
-
-        try {
+//        spaceLock.writeLock().lockInterruptibly()
+//
+//        try {
             // return tuples in working store to main store
             TupleStore wStore = workingStores[txn]
             List wTuples = wStore.allTuples
             for (tuple in wTuples) {
-                store.storeTuple(tuple)
+//                store.storeTuple(tuple)
+                put tuple
             }
 
-            TupleStore rStore = rollbackStores[txn]
-            rStore.deleteStorage()
-            rollbackStores.remove(txn)
-            wStore.deleteStorage()
-            workingStores.remove(txn)
             transactions.remove(txn)
-        } finally {
-            spaceLock.writeLock().unlock()
-        }
+            TupleStore rStore = rollbackStores[txn]
+            rollbackStores.remove(txn)
+            rStore.deleteStorage()
+            workingStores.remove(txn)
+            wStore.deleteStorage()
+//        } finally {
+//            spaceLock.writeLock().unlock()
+//        }
     }
     
-    private Map makeTupleIntoMutableMap(Tuple tuple) {
+    private Map makeTupleIntoMap(Tuple tuple) {
         Map result = null
         Set entries
         if (tuple) {
             result = new HashMap()
             tuple.fields.each { key, value ->
-                if (value instanceof Collection || value instanceof Map) {
-                    // the returned Collection or Map is immutable, make a mutable copy
-                    result[key] = value.clone()
-                }
-                else {
-                    result[key] = value
-                }
+                result[key] = value
             }
        }
         return result
@@ -614,8 +613,8 @@ class Space {
         if (timeout == NO_WAIT)
             return 0
         else if (timeout == WAIT_FOREVER) {
-            template.wait() 	// wait as long as required...
-            return 0
+            template.wait(20) 	// wait as long as required...
+            return WAIT_FOREVER
         }
         else if (timeToWait <= 0)
             // time is up
