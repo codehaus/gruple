@@ -21,7 +21,9 @@
 
 package mandelbrot
 
-import org.gruple.*
+import org.gruple.Space
+import org.gruple.Spaces
+import org.gruple.Transaction
 
 /**
  *
@@ -38,14 +40,17 @@ class Worker implements Runnable {
         String threadName = Thread.currentThread().getName()
         while(true) {
             ArrayList points
-            task = space.take(template)
+
+            Transaction txn = new Transaction()
+            task = space.take(template, Space.WAIT_FOREVER, txn)            
             println "Worker $threadName got task ${task['start']} for job ${task['jobId']}"
+
             points = calculateMandelbrot(task)
             Map result = createResult(task['jobId'], task['start'], points)
-
-
             println "Worker $threadName writing result for task ${result['start']} for job ${result['jobId']}"
-            space.put(result)
+
+            space.put(result, Space.FOREVER, txn)
+            txn.commit()
         }
     }
 
