@@ -6,23 +6,9 @@
   </component>
   <component name="ChangeListManager" verified="true">
     <list default="true" readonly="true" id="13e88136-bd47-48a3-ab1b-1564a4464e7a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/TupleStore.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/TupleStore.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruple.iws" afterPath="$PROJECT_DIR$/Gruple.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/Spaces.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/Spaces.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/Tuple.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/Tuple.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/deprecated-list.html" afterPath="$PROJECT_DIR$/doc/gapi/deprecated-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/Space.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/Space.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/index-all.html" afterPath="$PROJECT_DIR$/doc/gapi/index-all.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/help-doc.html" afterPath="$PROJECT_DIR$/doc/gapi/help-doc.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/package-summary.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/package-summary.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/gruple.jar" afterPath="$PROJECT_DIR$/dist/gruple.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/MemoryTupleStore.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/MemoryTupleStore.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/Transaction.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/Transaction.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruple.iml" afterPath="$PROJECT_DIR$/Gruple.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/package-frame.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/org/gruple/Template.html" afterPath="$PROJECT_DIR$/doc/gapi/org/gruple/Template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doc/gapi/allclasses-frame.html" afterPath="$PROJECT_DIR$/doc/gapi/allclasses-frame.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gruple.iws" afterPath="$PROJECT_DIR$/Gruple.iws" />
     </list>
     <ignored path="Gruple.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -97,7 +83,17 @@
   </component>
   <component name="FileColors" enabled="false" enabledForTabs="false" />
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="MemoryTupleStore.groovy" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/org/gruple/MemoryTupleStore.groovy">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="13" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.75">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -282,8 +278,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -302,22 +296,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gruple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gruple" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Examples" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -340,7 +322,7 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="RunManagerConfig.showSettingsBeforeRunnig" value="true" />
   </component>
-  <component name="RunManager" selected="Application.Mandelbrot">
+  <component name="RunManager" selected="JUnit.Gruple tests">
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -663,28 +645,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1920" height="1174" extended-state="6" />
+    <frame x="0" y="22" width="1440" height="874" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3262317" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30502138" sideWeight="0.38055557" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32685184" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30502138" sideWeight="0.33425927" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32037038" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3045977" sideWeight="0.25128207" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3045977" sideWeight="0.41153845" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31923077" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15705128" sideWeight="0.7212963" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15660919" sideWeight="0.6717949" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27222222" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="31" y="571" width="1872" height="294" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27222222" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="31" y="571" width="1872" height="294" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45740741" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="0" y="22" width="1920" height="1174" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39840284" sideWeight="0.6644474" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dataflow to this" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="SVN Properties" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.6644474" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Properties" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288948" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32685184" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="EJB" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39870968" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -802,56 +784,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/gruple/TupleStore.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/gruple/Template.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="1367" selection-end="1367" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="52" column="0" selection-start="1367" selection-end="1367" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/gruple/Tuple.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="19" selection-start="8575" selection-end="8575" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="239" column="19" selection-start="8575" selection-end="8575" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Examples/src/mandelbrot/Worker.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="34" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="43" column="34" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Examples/src/mandelbrot/Master.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="161" column="0" selection-start="4345" selection-end="4345" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="161" column="0" selection-start="4345" selection-end="4345" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/gruple/Space.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="305" column="0" selection-start="11096" selection-end="11096" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="305" column="0" selection-start="11096" selection-end="11096" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/gruple/Transaction.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="22" selection-start="1489" selection-end="1489" vertical-scroll-proportion="0.9267643">
-          <folding />
-        </state>
+        <state line="58" column="22" selection-start="1489" selection-end="1489" vertical-scroll-proportion="0.9267643" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/gruple/MemoryTupleStore.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="13" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.3648469">
+        <state line="34" column="13" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.75">
           <folding />
         </state>
       </provider>
