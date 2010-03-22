@@ -28,6 +28,12 @@ public class Transaction {
     // TODO: rollback transactions which have been here too long
     List spaces = Collections.synchronizedList(new ArrayList())
 
+    String id
+
+    public Transaction(String id) {
+        this.id = id
+    }
+    
     /**
      * Enroll a space in this transaction
      * @param the space to enroll
@@ -42,6 +48,7 @@ public class Transaction {
      */
     public commit() {
         for (space in spaces) space.commit(this)
+        spaces.clear()
     }
 
     /**
@@ -49,5 +56,8 @@ public class Transaction {
      */
     public rollback() {
         for (space in spaces) space.rollback(this)
+        spaces.clear()
     }
+
+
 }
