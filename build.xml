@@ -65,7 +65,14 @@
         <mkdir dir="${build.classes.dir}"/>
         <mkdir dir="${dist.dir}"/>
         <taskdef name="groovyc" classpathref="build.classpath" classname="org.codehaus.groovy.ant.Groovyc"/>
-        <groovyc classpathref="build.classpath" destdir="${build.classes.dir}" srcdir="${src.dir}" />
+        <groovyc classpathref="build.classpath" destdir="${build.classes.dir}" srcdir="${src.dir}" >
+            <include name="**/*.groovy"/>
+            <exclude name="**/*.java"/>
+        </groovyc>
+        <javac classpathref="build.classpath" destdir="${build.classes.dir}" srcdir="${src.dir}">
+            <include name="**/*.java"/>
+            <exclude name="**/*.groovy"/>
+        </javac>
         <jar destfile="${dist.dir}/gruple.jar" basedir="${build.classes.dir}" />
     </target>
 
