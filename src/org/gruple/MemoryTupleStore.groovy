@@ -30,6 +30,7 @@ import java.util.logging.Logger
  * An implementation of a TupleStore which keeps all tuples and
  * templates in memory.
  *
+ * @author Vanessa Williams <vanessa@fridgebuzz.com>
  * @see org.gruple.TupleStore
  */
 public class MemoryTupleStore implements TupleStore {
