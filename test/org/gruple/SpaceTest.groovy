@@ -23,6 +23,8 @@ package org.gruple
 
 import org.codehaus.groovy.runtime.TimeCategory
 import java.util.logging.Logger
+import java.util.concurrent.Executors
+import java.util.concurrent.CountDownLatch
 
 /**
  *
@@ -79,30 +81,38 @@ class SpaceTest extends GroovyTestCase {
 
         Map tuple
         100.downto(50) {
-            tuple = space.get(templates[it] as Map)
+            tuple = space.get(templates[it])
             assertNotNull(tuple)
         }
 
         100.downto(50) {
-            tuple = space.take(templates[it] as Map)
+            tuple = space.take(templates[it])
             assertNotNull(tuple)
         }
 
         49.downto(0) {
-            tuple = space.take(templates[it] as Map, 10)
+            tuple = space.take(templates[it], 10)
             assertNotNull(tuple)
         }
 
+        Thread.sleep(40L)
+
         49.downto(0) {
-            tuple = space.get(templates[it] as Map, 10)
+            tuple = space.get(templates[it], 10)
+            if (tuple != null) {
+                System.out.println("Getting tuple $it")
+            }
             assertNull(tuple)
 
         }
 
         // test expiring tuples
         space.put(tuples[1], 10L)   // tuple has ttl of 10ms
-        sleep(20L)                  // wait 20ms to be sure
+        sleep(50L)                  // wait 20ms to be sure
         tuple = space.take(templates[1] as Map, Space.NO_WAIT)
+        if (tuple != null) {
+            System.out.println("Timed out tuple is $tuple")
+        }
         assertNull(tuple)
 
         // TODO: test that the space data structures are all empty
@@ -188,6 +198,125 @@ class SpaceTest extends GroovyTestCase {
 
         tuple = space.get(templates[4], Space.NO_WAIT)
         assertNull(tuple)
+
+    }
+
+    public void testSimpleThreads() {
+
+        def executor = Executors.newFixedThreadPool(3)
+        def cdl = new CountDownLatch(3)
+
+        executor.execute {
+            doPut(5, 50)
+            cdl.countDown()
+        }
+        executor.execute {
+            doTake(5, 25)
+            cdl.countDown()
+        }
+        executor.execute {
+            doTake(26, 50)
+            cdl.countDown()
+        }
+        cdl.await ()
+    }
+
+    private void doPut(int putFrom, int putTo) {
+        List putList = new ArrayList()
+        putFrom.upto(putTo) {
+            putList.add(it)
+        }
+        boolean done = false
+        int maxWait = 20
+        while (!done) {
+                boolean wait = Math.random() < 0.75
+                if (wait) {
+//                    int waitTime = random(maxWait)
+//                    sleep(waitTime)
+                    Thread.currentThread().yield()
+                }
+            if (!putList.isEmpty()) {
+                int tupleIndex = random(putList.size-1)
+                if (tupleIndex < 0) tupleIndex = 0
+                int tupleNumber = putList[tupleIndex]
+                System.out.println("Thread ${Thread.currentThread().getName()} putting tuple $tupleNumber")
+                space.put(tuples[tupleNumber])
+                putList.remove(tupleIndex)
+            }
+            if (putList.isEmpty()) done = true
+         }
+
+    }
+
+    private void doTake(int takeFrom, int takeTo) {
+        List takeList = new ArrayList()
+        takeFrom.upto(takeTo) {
+            takeList.add(it)
+        }
+
+        boolean done = false
+        int maxWait = 20
+        while (!done) {
+                boolean wait = Math.random() < 0.25
+                if (wait) {
+                    int waitTime = random(maxWait)
+                    sleep(waitTime)
+                }
+            if (!takeList.isEmpty()) {
+                int tupleIndex = random(takeList.size-1)
+                if (tupleIndex < 0) tupleIndex = 0
+                int tupleNumber = takeList[tupleIndex]
+                System.out.println("Thread ${Thread.currentThread().getName()} taking tuple $tupleNumber")
+                space.take(templates[tupleNumber])
+                takeList.remove(tupleIndex)
+            }
+            if (takeList.isEmpty()) done = true
+        }
+
+    }
+
+    private void doPutAndTake(int putFrom, int putTo, int takeFrom, int takeTo) {
+
+        List putList = new ArrayList()
+        putFrom.upto(putTo) {
+            putList.add(it)
+        }
+
+        List takeList = new ArrayList()
+        takeFrom.upto(takeTo) {
+            takeList.add(it)
+        }
+
+        boolean done = false
+        boolean put = false
+        while (!done) {
+//                boolean wait = Math.random() < 0.25
+//                if (wait) {
+//                    int waitTime = random(maxWait)
+//                    sleep(waitTime)
+//                }
+            put = Math.random() < 0.5
+            if (!put) {
+                if (!takeList.isEmpty()) {
+                    int tupleIndex = random(takeList.size-1)
+                    if (tupleIndex < 0) tupleIndex = 0
+                    int tupleNumber = takeList[tupleIndex]
+                    System.out.println("Thread ${Thread.currentThread().getName()} taking tuple $tupleNumber")
+                    space.take(templates[tupleNumber])
+                    takeList.remove(tupleIndex)
+                }
+
+            }
+            else if (!putList.isEmpty()) {
+                int tupleIndex = random(putList.size-1)
+                if (tupleIndex < 0) tupleIndex = 0
+                int tupleNumber = putList[tupleIndex]
+                System.out.println("Thread ${Thread.currentThread().getName()} putting tuple $tupleNumber")
+                space.put(tuples[tupleNumber])
+                putList.remove(tupleIndex)
+            }
+            if (putList.isEmpty() && takeList.isEmpty()) done = true
+         }
 
     }
 
@@ -291,6 +420,5 @@ class SpaceTest extends GroovyTestCase {
         if (result > max) return max
         return result
     }
-
 }
 
